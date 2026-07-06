@@ -1,0 +1,35 @@
+environment.yml
+
+name: tropical-deforestation
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  # Python and pip
+  - python=3.10
+  - pip
+
+  # Data tools
+  - numpy
+  - pandas
+  - xarray
+  - netcdf4
+  - h5netcdf
+  - dask
+  - bottleneck
+  - scipy
+  
+  - pytorch
+  - torchvision
+  - cpuonly #if using GPU, change this
+  - scikit-learn
+  - shap
+  
+  - streamlit
+  - matplotlib
+  - seaborn
+  - plotly
+
+  - pip:
+    - pyyaml
