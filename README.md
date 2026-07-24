@@ -5,13 +5,14 @@ Python • PyTorch • xarray • pandas • NumPy • Streamlit • NetCDF • 
 # Tropical Deforestation Analysis and Neural Network Emulator for the NASA-GISS BiomeE Model
 
 ## Final Deliverable:
-Interactive streamlit visualizer allowing prediction at various locations, timelines, and deforestation rates in each biome
-![Picture of interactive spatial dashboard](Visualizer/Visualizer_preview.png)
+Interactive streamlit visualizer allowing prediction at various locations, timelines, and deforestation rates in each biome. Example below
+![Picture of interactive spatial dashboard](visualizer/Visualizer_preview.png)
 
 
+## Background
 While the Amazon is well known, the Cerrado is Brazil's second largest biome and chronically understudied. This project compares impacts of deforestation between the two biomes using the NASA-GISS BiomeE model. Because a major limitation of the model is compute time, a neural network emulator is built on a new deforestation subroutine involving an annual hazard rate for each biome. This repository has the complete workflow, from finding hazard rates, to processing results, analyzing outputs, and training a neural network. Explanations for each notebook are also below.
 
-## Workflow
+
 ## Basic Setup
 
 This toolkit works directly with BiomeE's native configuration framework. Note: Hardcoded paths must be updated to the user, and will depend on how you implement the BiomeE run. Each .py will guide you through inputs, and often you will only need to change the username. 
@@ -50,11 +51,9 @@ Part 2:
 | `workflows/explore_one_grid.py` | Plots and analyzes a single grid cell as a sanity check |
 | `neural_network/forcing/nn_forcing.py` | Prepares inputs for neural network. |
 | `neural_network/forcing/nn_forcing_precipitation.py` | Prepares inputs for neural network, with precipitation, used when running precipitation scaling |
-
 | `neural_network/flat/neural_networkFlat.py` |  trains by-biome PyTorch neural network, saves weights. Incorporates precipitation by default.  |
 | `neural_network/space/neural_networkSpace.py` |  trains spatio-temporal PyTorch neural network, saves weights. Incorporates precipitation by default. |
 | `neural_network/space/neural_networkSpace-noprecip.py` | trains spatio-temporal PyTorch neural network, saves weights. Does not incorporate precipitation for simpler training | 
-
 | `neural_network/flat/analyzing_nnFlat.py` | Plots and analyzes neural network predictions by-biome, runs SHAP values, all loading from saved weights |
 | `neural_network/space/analyzing_nnSpace.py` | Runs, saves simulations for each lat/lon pair to analyze as desired |
 | `neural_network/flat/compress_neural_forcing.py` | Compresses neural network forcing data, removing the spatial component|
